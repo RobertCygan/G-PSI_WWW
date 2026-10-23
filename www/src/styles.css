@@ -48,10 +48,223 @@
 }
 
 .hero-stage {
+  position: relative;
+  overflow: hidden;
+  background: #01060e;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(900px 480px at 78% 18%, rgba(62, 203, 255, 0.16), transparent 62%),
-    radial-gradient(640px 420px at 8% 100%, rgba(18, 52, 96, 0.55), transparent 70%),
-    #010308;
+    linear-gradient(90deg, rgba(1, 8, 16, 0.5) 0%, rgba(1, 8, 16, 0.22) 46%, rgba(1, 8, 16, 0.35) 100%),
+    linear-gradient(180deg, rgba(1, 8, 16, 0.15), transparent 18%, rgba(1, 6, 14, 0.15) 70%, #01060e);
+}
+
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: auto 8% 12% auto;
+  width: min(46vw, 640px);
+  height: min(46vw, 640px);
+  background: radial-gradient(circle, rgba(62, 203, 255, 0.18), transparent 68%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.cta {
+  display: inline-flex;
+  height: 48px;
+  align-items: center;
+  border-radius: 999px;
+  background: #2f9dff;
+  padding: 0 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #041018;
+  box-shadow: 0 0 24px rgba(47, 157, 255, 0.35);
+}
+
+.cta-ghost {
+  background: transparent;
+  color: white;
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.cta-nav {
+  height: 38px;
+  padding: 0 16px;
+  box-shadow: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(4, 12, 22, 0.45);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.os {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  border-radius: 28px;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(7, 18, 34, 0.72), rgba(3, 8, 16, 0.78));
+  border: 1px solid rgba(110, 210, 255, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(62, 203, 255, 0.12),
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    inset 0 0 40px rgba(62, 203, 255, 0.05);
+  backdrop-filter: blur(18px);
+}
+
+.os-bar,
+.os-tile span,
+.os-stage span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.os-bar {
+  color: white;
+  font-size: 13px;
+}
+
+.os-bar img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.os-bar span {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.os-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.os-tile,
+.os-stage {
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
+  text-align: left;
+  color: white;
+}
+
+.os-tile[aria-pressed="true"] {
+  border-color: rgba(110, 210, 255, 0.8);
+  box-shadow: 0 0 0 1px rgba(110, 210, 255, 0.25);
+}
+
+.os-tile img,
+.os-stage img,
+.shot img {
+  display: block;
+  width: 100%;
+  height: 92px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.os-stage img {
+  height: 210px;
+}
+
+.os-tile span,
+.os-stage span,
+.shot span {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px 12px;
+}
+
+.os-tile b,
+.os-stage b,
+.shot b {
+  font-weight: 500;
+}
+
+.os-tile small,
+.os-stage small,
+.shot small,
+.band-cell span {
+  color: rgba(214, 226, 238, 0.72);
+  font-size: 12px;
+}
+
+.shot {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  min-height: 230px;
+  border-radius: 18px;
+  border: 1px solid rgba(120, 180, 220, 0.22);
+  background: #071018;
+}
+
+.shot img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.shot span {
+  position: absolute;
+  inset: auto 0 0 0;
+  background: linear-gradient(180deg, transparent, rgba(2, 6, 12, 0.92));
+  padding: 48px 16px 16px;
+}
+
+.shot:hover img,
+.os-stage:hover img {
+  transform: scale(1.04);
+}
+
+.shot-tall {
+  min-height: 320px;
+}
+
+.band-cell {
+  display: grid;
+  gap: 4px;
+  border-top: 1px solid rgba(120, 180, 220, 0.16);
+  padding: 22px 20px;
+}
+
+.band-cell + .band-cell {
+  border-left: 1px solid rgba(120, 180, 220, 0.16);
+}
+
+@media (max-width: 639px) {
+  .band-cell + .band-cell {
+    border-left: 0;
+  }
 }
 
 .hero-glow {

@@ -32,8 +32,8 @@ function Header() {
   const labels = t.nav;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-20 border-b border-line bg-bg/90 backdrop-blur-sm">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5">
+    <header className="fixed inset-x-0 top-0 z-30 border-b border-white/10 bg-[#01060e]/45 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <img src="/brand/emblem.png" alt="" className="h-9 w-9 object-contain" />
           <span className="leading-tight">
@@ -41,13 +41,14 @@ function Header() {
             <span className="hidden text-[10px] tracking-[0.18em] text-muted sm:block">GOVTECH SOLUTIONS</span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-6 md:flex" aria-label={labels.menu}>
-          {links.slice(1).map((item) => (
+        <nav className="hidden items-center gap-1 md:flex" aria-label={labels.menu}>
+          {links.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="text-sm text-muted hover:text-fg"
-              activeProps={{ className: "text-sm text-accent" }}
+              className="rounded-full px-3 py-2 text-sm text-white/70 hover:text-white"
+              activeProps={{ className: "rounded-full bg-white/10 px-3 py-2 text-sm text-white" }}
+              activeOptions={{ exact: item.to === "/" }}
             >
               {labels[item.key]}
             </Link>
@@ -55,6 +56,9 @@ function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <LangSwitch />
+          <Link to="/kontakt" className="cta cta-nav hidden md:inline-flex">
+            {labels.contact}
+          </Link>
           <button
             type="button"
             className="grid h-11 w-11 place-items-center text-fg md:hidden"

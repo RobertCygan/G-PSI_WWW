@@ -31,7 +31,16 @@ export type Copy = {
     skip: string;
     lang: string;
   };
-  hero: { position: string; prompt: string; promptLabel: string; kicker: string; title: string; primary: string; secondary: string };
+  hero: {
+    position: string;
+    prompt: string;
+    promptLabel: string;
+    kicker: string;
+    title: string;
+    primary: string;
+    secondary: string;
+    chips: string[];
+  };
   home: {
     capabilitiesKicker: string;
     capabilitiesTitle: string;
@@ -184,19 +193,21 @@ export const copy: Record<Lang, Copy> = {
       lang: "Språk",
     },
     hero: {
-      kicker: "GovTech Solutions",
-      title: "Analyse, automatisering og flater som tåler innsyn.",
-      position: "G-PSI bygger verktøy der et tall kan spores tilbake til kilden. Ikke en katalog av løfter.",
+      kicker: "Offentlig sektor",
+      title: "KI, analyse og GovTech.",
+      position:
+        "Dashbord, automatisering og beregningsflater for kommune og kontor. Et tall skal kunne spores tilbake til kilden.",
       primary: "Se arbeidene",
       secondary: "Ta kontakt",
+      chips: ["Data som kan leses", "Løp som gjentas", "Flater med innsyn"],
       prompt: "Hva skal vi automatisere?",
       promptLabel: "Hva skal vi automatisere?",
     },
     home: {
       capabilitiesKicker: "Arbeid",
-      capabilitiesTitle: "Seks felt. Ingen av dem er et slagord.",
+      capabilitiesTitle: "Fra data til en flate.",
       worksKicker: "Arbeider",
-      worksTitle: "Fire filer. Ingen av dem er en skisse.",
+      worksTitle: "Virkelige flater. Ikke mockuper.",
       worksLead: "Hvert arbeid er den HTML-filen som ligger i depotet. Statusen er den filen selv oppgir.",
       openSurface: "Åpne flaten",
       approachKicker: "Fremgangsmåte",
@@ -347,19 +358,21 @@ export const copy: Record<Lang, Copy> = {
       lang: "Language",
     },
     hero: {
-      kicker: "GovTech Solutions",
-      title: "Analysis, automation and surfaces that hold up to scrutiny.",
-      position: "G-PSI builds tools where a figure can be traced back to its source. Not a catalogue of promises.",
+      kicker: "Public sector",
+      title: "AI, analytics and GovTech.",
+      position:
+        "Dashboards, automation and calculation surfaces for municipalities and offices. A figure should trace back to its source.",
       primary: "See the work",
       secondary: "Contact",
+      chips: ["Data you can read", "Work that repeats", "Surfaces you can audit"],
       prompt: "What should we automate?",
       promptLabel: "What should we automate?",
     },
     home: {
       capabilitiesKicker: "Work",
-      capabilitiesTitle: "Six fields. None of them is a slogan.",
+      capabilitiesTitle: "From data to a surface.",
       worksKicker: "Work",
-      worksTitle: "Four files. None of them is a sketch.",
+      worksTitle: "Real surfaces. Not mockups.",
       worksLead: "Each piece of work is the HTML file that sits in the repository. The status is the one the file itself states.",
       openSurface: "Open the surface",
       approachKicker: "Approach",
