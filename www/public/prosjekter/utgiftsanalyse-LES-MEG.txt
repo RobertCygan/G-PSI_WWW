@@ -1,0 +1,5 @@
+Utgiftsanalyse - demo (Fjordvik kommune, fiktive data)
+G-PSI GovTech Solutions
+
+index.html inneholder alt (data, video, skrifter og biblioteker) i én fil og kan åpnes direkte,
+også rett fra ZIP-filen. Ingen eksterne forespørsler.
