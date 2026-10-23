@@ -1,4 +1,4 @@
-import { readdirSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Plugin } from "vite";
 import { defineConfig } from "vite";
@@ -19,6 +19,35 @@ function hasGlobbedMigrations(root: string): boolean {
   } catch {
     return false;
   }
+}
+
+function staticIndexPlugin(): Plugin {
+  return {
+    name: "gpsi-static-index",
+    apply: "serve",
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const pathOnly = (req.url ?? "").split("?", 1)[0] ?? "";
+        if (pathOnly !== "/" && pathOnly !== "/index.html") {
+          next();
+          return;
+        }
+        const method = (req.method ?? "GET").toUpperCase();
+        if (method !== "GET" && method !== "HEAD") {
+          next();
+          return;
+        }
+        res.statusCode = 200;
+        res.setHeader("content-type", "text/html; charset=utf-8");
+        res.setHeader("cache-control", "no-store");
+        if (method === "HEAD") {
+          res.end();
+          return;
+        }
+        res.end(readFileSync(join(server.config.root, "index.html")));
+      });
+    },
+  };
 }
 
 /**
@@ -158,6 +187,7 @@ export default defineConfig(({ command, isPreview }) => ({
   },
   resolve: { tsconfigPaths: true },
   plugins: [
+    staticIndexPlugin(),
     pgliteBootstrapPlugin(),
     // Before tanstackStart so /auth/popup never falls through to the SPA.
     authPopupPlugin(),
