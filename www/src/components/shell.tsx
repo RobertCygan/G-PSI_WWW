@@ -36,7 +36,10 @@ function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <img src="/brand/emblem.png" alt="" className="h-9 w-9 object-contain" />
-          <span className="text-sm font-medium tracking-widest text-metal">G-PSI</span>
+          <span className="leading-tight">
+            <span className="block text-sm font-medium tracking-widest text-metal">G-PSI</span>
+            <span className="hidden text-[10px] tracking-[0.18em] text-muted sm:block">GOVTECH SOLUTIONS</span>
+          </span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex" aria-label={labels.menu}>
           {links.slice(1).map((item) => (

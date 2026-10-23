@@ -13,6 +13,8 @@ export type Project = {
   status: string;
   text: string;
   href: string;
+  file: string;
+  preview: string;
 };
 
 export type Copy = {
@@ -33,6 +35,10 @@ export type Copy = {
   home: {
     capabilitiesKicker: string;
     capabilitiesTitle: string;
+    worksKicker: string;
+    worksTitle: string;
+    worksLead: string;
+    openSurface: string;
     approachKicker: string;
     approachTitle: string;
     approach: string[];
@@ -42,7 +48,14 @@ export type Copy = {
   };
   capabilities: Capability[];
   solutions: { kicker: string; title: string; lead: string };
-  projects: { kicker: string; title: string; lead: string; open: string; items: Project[] };
+  projects: {
+    kicker: string;
+    title: string;
+    lead: string;
+    open: string;
+    running: string;
+    items: Project[];
+  };
   technology: {
     kicker: string;
     title: string;
@@ -178,6 +191,10 @@ export const copy: Record<Lang, Copy> = {
     home: {
       capabilitiesKicker: "Arbeid",
       capabilitiesTitle: "Seks felt. Ingen av dem er et slagord.",
+      worksKicker: "Arbeider",
+      worksTitle: "Fire filer. Ingen av dem er en skisse.",
+      worksLead: "Hvert arbeid er den HTML-filen som ligger i depotet. Statusen er den filen selv oppgir.",
+      openSurface: "Åpne flaten",
       approachKicker: "Fremgangsmåte",
       approachTitle: "Først løpet. Så verktøyet.",
       approach: [
@@ -199,35 +216,44 @@ export const copy: Record<Lang, Copy> = {
       kicker: "Prosjekter",
       title: "Utvalg fra arbeidet. Statusen står på hver enkelt.",
       lead: "Ingen oppdiktede kunder og ingen resultattall. Det som ligger her, er filer fra depotet, med den statusen de selv har.",
-      open: "Åpne prosjektet",
+      open: "Åpne filen",
+      running: "Filen kjører i rammen under. Ingenting er byttet ut med en mockup.",
       items: [
         {
           id: "steigen",
           title: "Steigen — utgiftsanalyse",
           status: "Utviklingsprosjekt",
-          text: "Regnskapsår 2016–2025 for Steigen: oversikt, kategorier, leverandører, KOSTRA, transaksjoner og datakvalitet. Dette er G-PSI sitt analyseverktøy, ikke merket som kommunens offisielle system.",
+          text: "Regnskapsår 2016–2025: oversikt, kategorier, leverandører, KOSTRA, transaksjoner og datakvalitet. G-PSI Analytics, ikke merket som kommunens offisielle system.",
           href: "/prosjekter/Steigen.html",
+          file: "Steigen.html",
+          preview: "/prosjekter/previews/steigen.jpg",
         },
         {
           id: "skatt-kart",
           title: "Eiendomsskatt per grunnkrets",
           status: "Utviklingsprosjekt",
-          text: "Kart og tabell over eiendomsskatt i Steigen, med tidslinje og skille mellom skatteplikt og fritak. Kartet krever WebGL. Tabell og grafer står igjen uten.",
+          text: "Kart og tabell for Steigen, med årslinje og skille mellom skatteplikt og fritak. Kartet bruker WebGL. Tabell og grafer står igjen uten.",
           href: "/prosjekter/eiendomsskatt-steigen.html",
+          file: "eiendomsskatt-steigen.html",
+          preview: "/prosjekter/previews/skatt.jpg",
         },
         {
           id: "kalkulator",
           title: "Beregn eiendomsskatt",
           status: "Prototype",
-          text: "Siden sier det selv: ikke kommunens offisielle kalkulator. Satser fra «Rammer og retningslinjer for taksering 2019». Overslag for bolig, andre bygg eller tomt.",
+          text: "Filen sier det selv: ikke kommunens offisielle kalkulator. Satser fra takseringsretningslinjene 2019. Overslag for bolig, andre bygg eller tomt.",
           href: "/prosjekter/kalkulator.html",
+          file: "kalkulator.html",
+          preview: "/prosjekter/previews/kalkulator.jpg",
         },
         {
           id: "laanndet",
           title: "Lånndet",
           status: "Konsept",
-          text: "Lei ting av folk i nærheten. En selvstendig HTML-prototyp, uten påstått brukergrunnlag.",
+          text: "Lei ting av folk i nærheten. En selvstendig research-demo. Annonser på siden er eksempler, ikke ekte utleie.",
           href: "/prosjekter/Laanndet.html",
+          file: "Laanndet.html",
+          preview: "/prosjekter/previews/laanndet.jpg",
         },
       ],
     },
@@ -324,6 +350,10 @@ export const copy: Record<Lang, Copy> = {
     home: {
       capabilitiesKicker: "Work",
       capabilitiesTitle: "Six fields. None of them is a slogan.",
+      worksKicker: "Work",
+      worksTitle: "Four files. None of them is a sketch.",
+      worksLead: "Each piece of work is the HTML file that sits in the repository. The status is the one the file itself states.",
+      openSurface: "Open the surface",
       approachKicker: "Approach",
       approachTitle: "The workflow first. Then the tool.",
       approach: [
@@ -345,35 +375,44 @@ export const copy: Record<Lang, Copy> = {
       kicker: "Projects",
       title: "A selection of the work. Each one carries its own status.",
       lead: "No invented clients and no performance figures. What is here are files from the repository, with the status they already claim.",
-      open: "Open project",
+      open: "Open the file",
+      running: "The file is running in the frame below. Nothing has been replaced with a mockup.",
       items: [
         {
           id: "steigen",
           title: "Steigen — expenditure analysis",
           status: "Development project",
-          text: "Accounting years 2016–2025 for Steigen: overview, categories, suppliers, KOSTRA, transactions and data quality. This is G-PSI's analysis tool, not labelled as the municipality's official system.",
+          text: "Accounting years 2016–2025: overview, categories, suppliers, KOSTRA, transactions and data quality. G-PSI Analytics, not labelled as the municipality's official system.",
           href: "/prosjekter/Steigen.html",
+          file: "Steigen.html",
+          preview: "/prosjekter/previews/steigen.jpg",
         },
         {
           id: "skatt-kart",
           title: "Property tax by district",
           status: "Development project",
-          text: "Map and table of property tax in Steigen, with a timeline and a split between taxable and exempt. The map needs WebGL. The table and charts remain without it.",
+          text: "Map and table for Steigen, with a year line and a split between taxable and exempt. The map uses WebGL. The table and charts remain without it.",
           href: "/prosjekter/eiendomsskatt-steigen.html",
+          file: "eiendomsskatt-steigen.html",
+          preview: "/prosjekter/previews/skatt.jpg",
         },
         {
           id: "kalkulator",
           title: "Property tax estimate",
           status: "Prototype",
-          text: "The page says so itself: not the municipality's official calculator. Rates from the 2019 valuation guidelines. An estimate for a home, other buildings or a plot.",
+          text: "The file says so itself: not the municipality's official calculator. Rates from the 2019 valuation guidelines. An estimate for a home, other buildings or a plot.",
           href: "/prosjekter/kalkulator.html",
+          file: "kalkulator.html",
+          preview: "/prosjekter/previews/kalkulator.jpg",
         },
         {
           id: "laanndet",
           title: "Lånndet",
           status: "Concept",
-          text: "Rent things from people nearby. A self-contained HTML prototype, with no claimed user base.",
+          text: "Rent things from people nearby. A self-contained research demo. Listings on the page are examples, not real rentals.",
           href: "/prosjekter/Laanndet.html",
+          file: "Laanndet.html",
+          preview: "/prosjekter/previews/laanndet.jpg",
         },
       ],
     },
