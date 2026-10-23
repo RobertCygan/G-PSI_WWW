@@ -47,7 +47,7 @@ function Header() {
               key={item.to}
               to={item.to}
               className="text-sm text-muted hover:text-fg"
-              activeProps={{ className: "text-sm text-fg" }}
+              activeProps={{ className: "text-sm text-accent" }}
             >
               {labels[item.key]}
             </Link>

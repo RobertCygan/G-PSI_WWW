@@ -1,5 +1,5 @@
 // @ts-nocheck
-const TEX = 512;
+const TEX = 1024;
 const scratch = {
   solid: new Uint8Array(TEX * TEX),
   vis: new Uint8Array(TEX * TEX),

@@ -31,7 +31,7 @@ export type Copy = {
     skip: string;
     lang: string;
   };
-  hero: { position: string; prompt: string; promptLabel: string };
+  hero: { position: string; prompt: string; promptLabel: string; kicker: string; title: string; primary: string; secondary: string };
   home: {
     capabilitiesKicker: string;
     capabilitiesTitle: string;
@@ -184,7 +184,11 @@ export const copy: Record<Lang, Copy> = {
       lang: "Språk",
     },
     hero: {
-      position: "Ingeniørarbeid for offentlig sektor. Automatisering, analyse og systemer som tåler innsyn.",
+      kicker: "GovTech Solutions",
+      title: "Analyse, automatisering og flater som tåler innsyn.",
+      position: "G-PSI bygger verktøy der et tall kan spores tilbake til kilden. Ikke en katalog av løfter.",
+      primary: "Se arbeidene",
+      secondary: "Ta kontakt",
       prompt: "Hva skal vi automatisere?",
       promptLabel: "Hva skal vi automatisere?",
     },
@@ -343,7 +347,11 @@ export const copy: Record<Lang, Copy> = {
       lang: "Language",
     },
     hero: {
-      position: "Engineering for the public sector. Automation, analysis and systems that hold up to scrutiny.",
+      kicker: "GovTech Solutions",
+      title: "Analysis, automation and surfaces that hold up to scrutiny.",
+      position: "G-PSI builds tools where a figure can be traced back to its source. Not a catalogue of promises.",
+      primary: "See the work",
+      secondary: "Contact",
       prompt: "What should we automate?",
       promptLabel: "What should we automate?",
     },
