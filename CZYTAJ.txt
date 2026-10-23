@@ -5,7 +5,9 @@ Strona jest w katalogu www/
   npm install
   npm run dev
 
-Cztery prace leżą osobno w katalogu głównym i w www/public/prosjekter/:
+Pięć prac leży osobno w katalogu głównym i w www/public/prosjekter/.
+Na stronie głównej działają na żywo (wbudowane w stronę), nie jako zrzuty ekranu:
+  simulator.html        demo, Fjordvik kommune, dane fikcyjne – suwaki stawek podatku
   utgiftsanalyse.html   demo, Fjordvik kommune, dane fikcyjne
   eiendomsskatt.html    demo, Fjordvik kommune, dane fikcyjne
   kalkulator.html       prototyp kalkulatora, Steigen (retningslinjer 2019)
@@ -14,3 +16,7 @@ Cztery prace leżą osobno w katalogu głównym i w www/public/prosjekter/:
 Usunięte pliki ze starymi danymi:
   Steigen.html
   eiendomsskatt-steigen.html
+
+simulator.html buduje skrypt tools/build_simulator_demo.py
+z dist/simulator.html z repozytorium G-PSI-Web i danych z eiendomsskatt.html:
+  python tools/build_simulator_demo.py --simulator ../G-PSI-Web/dist/simulator.html

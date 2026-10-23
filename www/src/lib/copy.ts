@@ -235,6 +235,15 @@ export const copy: Record<Lang, Copy> = {
       running: "Filen kjører i rammen under. Ingenting er byttet ut med en mockup.",
       items: [
         {
+          id: "simulator",
+          title: "Skattesimulator",
+          status: "Demo",
+          text: "Dra i satsene for den fiktive Fjordvik kommune og se skatten endre seg for kommunen, hver grunnkrets og én bolig, mens du drar. Tallene er syntetiske.",
+          href: "/prosjekter/simulator.html",
+          file: "simulator.html",
+          preview: "/prosjekter/previews/simulator.jpg",
+        },
+        {
           id: "utgift",
           title: "Utgiftsanalyse",
           status: "Demo",
@@ -399,6 +408,15 @@ export const copy: Record<Lang, Copy> = {
       open: "Open the file",
       running: "The file is running in the frame below. Nothing has been replaced with a mockup.",
       items: [
+        {
+          id: "simulator",
+          title: "Property tax simulator",
+          status: "Demo",
+          text: "Drag the rates for the fictional Fjordvik municipality and watch the tax change for the municipality, each district and one home as you drag. The figures are synthetic.",
+          href: "/prosjekter/simulator.html",
+          file: "simulator.html",
+          preview: "/prosjekter/previews/simulator.jpg",
+        },
         {
           id: "utgift",
           title: "Expenditure analysis",
