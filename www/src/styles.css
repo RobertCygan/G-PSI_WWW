@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@import "@fontsource/schibsted-grotesk/latin-ext-400.css";
+@import "@fontsource/schibsted-grotesk/latin-ext-500.css";
+@import "@fontsource/schibsted-grotesk/latin-ext-600.css";
+
+@theme {
+  --color-bg: #010308;
+  --color-raise: #0b1016;
+  --color-fg: #e7edf2;
+  --color-muted: #8d9aaa;
+  --color-metal: #c5ced6;
+  --color-line: #1c2833;
+  --color-accent: #3ecbff;
+  --font-sans: "Schibsted Grotesk", "Segoe UI", sans-serif;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 40;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  padding: 0.75rem 1rem;
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+.hero-stage {
+  background: #000;
+}
+
+.logo-film {
+  width: min(92vw, 52svh);
+  height: min(92vw, 52svh);
+  background: transparent;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
